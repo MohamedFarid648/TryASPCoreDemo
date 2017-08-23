@@ -28,6 +28,12 @@ namespace TryCoreDemo
             // Add framework services.
             services.AddMvc();
 
+            //services.AddTransient<TryCoreDemoContext>(); Short life span,An instance will be created every time one is requested
+            //services.AddScoped<TryCoreDemoContext>();//Single instance will be created for each scope(current web request)
+            //services.AddSingleton<TryCoreDemoContext>();//Single instance for the entire application(Data shared between all classes)
+
+
+
             services.AddDbContext<TryCoreDemoContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("TryCoreDemoContext")));
 
